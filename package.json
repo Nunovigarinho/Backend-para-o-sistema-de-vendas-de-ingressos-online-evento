@@ -1,0 +1,19 @@
+{
+  "name": "backend-para-o-sistema-de-vendas-de-ingressos-online-evento",
+  "version": "1.0.0",
+  "description": "backend de página de ingressos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nunovigarinho/Backend-para-o-sistema-de-vendas-de-ingressos-online-evento.git"
+  },
+  "author": "Nuno Vigarinho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nunovigarinho/Backend-para-o-sistema-de-vendas-de-ingressos-online-evento/issues"
+  },
+  "homepage": "https://github.com/Nunovigarinho/Backend-para-o-sistema-de-vendas-de-ingressos-online-evento#readme"
+}
