@@ -79,4 +79,7 @@ constructor(nome, data, local, horario, preco, descricao, ingressosDisponiveis) 
     }
 
 
+    //sobrescrita do metodo toString()
+    
+
 }
