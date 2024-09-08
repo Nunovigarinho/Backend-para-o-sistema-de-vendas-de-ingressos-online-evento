@@ -1,7 +1,33 @@
 import Evento from "./modelo/evento.js"; //nunca esquecer da extensão do arquivo
 
 //constante que armazena um conjunto de dados que estão estruturados e essa estrutura é chamada de Evento
-const evento = new Evento("Iron Maiden: THE FUTURE PAST TOUR", "07/12/2024", "Allianz Parque", "21:00","A THE FUTURE PAST TOUR, que inclui músicas do mais recente álbum de estúdio do IRON MAIDEN, Senjutsu, foi apresentada para mais de 750.000 fãs em mais de 30 shows esgotados em toda a Europa no verão de 2023. Para mais informações, acesse www.ironmaiden.com.", "R$300,00", "247");
+const evento = new Evento("Eric Clapton: 60 anos de carreira", "29/09/2024", "Allianz Parque", "21:00","350.00", "Em comemoração aos 60 anos de carreira, Eric Clapton inicia sua nova turnê mundial em 09 de maio de 2024 em Newcastle, na Inglaterra.", "947");
 
 
-console.log(evento.data);
+evento.incluir().then(() =>{
+   console.log("Evento incluído com sucesso!");
+}).catch((erro) =>{
+ console.log("Erro ao incluir o evento: " +  erro);
+});
+
+
+evento.consultar().then((listaEventos)=>{
+for (const evento of listaEventos){
+  console.log(evento.toString());
+}       
+}).catch((erro)=>{
+  console.log("Erro ao consultar os eventos: " + erro); 
+})
+
+
+evento.excluir("Eric Clapton: 60 anos de carreira").then(() => {
+console.log("Evento excluído com sucesso!");
+}).catch((erro) => {
+console.log("Erro ao excluir o evento: " + erro);
+});
+
+evento.alterar().then(() => {
+console.log("Evento alterado com sucesso!");
+}).catch((erro) => {
+console.log("Erro ao alterar o evento: " + erro);
+});

@@ -1,3 +1,5 @@
+import EventoDAO from "../persistencia/eventoDAO.js"
+//DAO = objeto de acesso aos dados
 export default class Evento{
     //atributos privados
 #nome   
@@ -6,16 +8,16 @@ export default class Evento{
 #horario
 #preco
 #descricao
-#ingressosdisponíveis
+#ingressosdisponiveis
     
-constructor(nome, data, local, horario, preco, descricao, ingressosDisponiveis) {
+constructor(nome, data, local, horario, preco, descricao, ingressosdisponiveis) {
     this.nome = nome;                  
     this.data = data;                  
     this.local = local;                
     this.horario = horario;            
     this.preco = preco;                
     this.descricao = descricao;        
-    this.ingressosDisponiveis = ingressosDisponiveis; 
+    this.ingressosdisponiveis = ingressosdisponiveis;
 }
 
     //metodos javascript getters e setters
@@ -70,16 +72,39 @@ constructor(nome, data, local, horario, preco, descricao, ingressosDisponiveis) 
         this.#descricao = novoDescricao;
     }
 
-    get ingressosDisponiveis(){
-        return this.#ingressosdisponíveis;
+    get ingressosdisponiveis(){
+        return this.#ingressosdisponiveis;
     }
 
-    set ingressosDisponiveis(novoingressosDisponiveis){
-        this.#ingressosdisponíveis = novoingressosDisponiveis;
+    set ingressosdisponiveis(novoingressosdisponiveis){
+        this.#ingressosdisponiveis = novoingressosdisponiveis;
     }
 
 
     //sobrescrita do metodo toString()
+    toString(){
+       //string literals
+        return `Nome: ${this.#nome} \n
+Data: ${this.#data} \n
+Local: ${this.#local} \n
+Horario: ${this.#horario} \n
+Preço: ${this.#preco} \n
+Descrição: ${this.#descricao} \n
+ingressosdisponiveis: ${this.#ingressosdisponiveis} \n
+`
+    }
     
+    async incluir(){
+        const eveDAO = new EventoDAO();
+        await eveDAO.gravar(this);}
+    async alterar(){
+        const eveDAO = new EventoDAO();
+        await eveDAO.alterar(this);}
+    async excluir(){
+        const eveDAO = new EventoDAO();
+        await eveDAO.excluir(this);}
 
+    async consultar(termoBusca){
+        const eveDAO = new EventoDAO();
+        return await eveDAO.consultar(termoBusca); }
 }
