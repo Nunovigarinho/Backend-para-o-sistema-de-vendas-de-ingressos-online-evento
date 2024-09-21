@@ -93,6 +93,18 @@ Descrição: ${this.#descricao} \n
 ingressosdisponiveis: ${this.#ingressosdisponiveis} \n
 `
     }
+
+    toJSON(){
+        return{
+            nome: this.#nome,                   
+            data: this.#data,
+            local: this.#local,
+            horario: this.#horario,
+            preco: this.#preco,
+            descricao: this.#descricao,
+            ingressosdisponiveis: this.#ingressosdisponiveis       
+        }
+    }
     
     async incluir(){
         const eveDAO = new EventoDAO();
